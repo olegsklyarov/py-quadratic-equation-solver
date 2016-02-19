@@ -1,13 +1,7 @@
 from math import sqrt
 
-# y(x) = ax^2 + bx + c
-#
-# Task solve(a, b, c)
-# To find all x (array): y(x) = 0
-
 
 class QuadraticSolver:
-
     def __init__(self):
         pass
 
@@ -19,7 +13,7 @@ class QuadraticSolver:
                     return "many"
                 return []
             return [-c / b]
-        d = b*b - 4*a*c;
+        d = b*b - 4*a*c
         if d < 0:
             return []
         sqrt_d = sqrt(d)

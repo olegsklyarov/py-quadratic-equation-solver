@@ -4,7 +4,8 @@ from sys import argv
 
 def main():
     if len(argv) == 4:
-        print QuadraticSolver.solve(argv[1], argv[2], argv[3])
+        a, b, c = map(float, argv[1:4])
+        print QuadraticSolver.solve(a, b, c)
     else:
         print "Usage: %s a b c" % argv[0]
 

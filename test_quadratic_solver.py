@@ -3,35 +3,29 @@ from quadratic_solver import QuadraticSolver
 
 
 class TestQuadraticSolver(TestCase):
+    def doTest(self, a, b, c, expected):
+        self.assertEqual(expected, QuadraticSolver.solve(a, b, c))
 
     def testBasic(self):
-        result = QuadraticSolver.solve(1, -2, -35)
-        self.assertEqual([-5, 7], result)
+        self.doTest(1, -2, -35, [-5, 7])
 
     def testNoRoots(self):
-        result = QuadraticSolver.solve(1, -2, 35)
-        self.assertEqual([], result)
+        self.doTest(1, -2, 35, [])
 
     def testLinear(self):
-        result = QuadraticSolver.solve(0, 1, 1)
-        self.assertEqual([-1], result)
+        self.doTest(0, 1, 1, [-1])
 
     def testConst(self):
-        result = QuadraticSolver.solve(0, 0, 1)
-        self.assertEqual([], result)
+        self.doTest(0, 0, 1, [])
 
     def testManyRoots(self):
-        result = QuadraticSolver.solve(0, 0, 0)
-        self.assertEqual("many", result)
+        self.doTest(0, 0, 0, "many")
 
     def testTwoEqualRoots(self):
-        result = QuadraticSolver.solve(1, 2, 1)
-        self.assertEqual([-1, -1], result)
+        self.doTest(1, 2, 1, [-1, -1])
 
     def testNotNormal(self):
-        result = QuadraticSolver.solve(2, -4, -70)
-        self.assertEqual([-5, 7], result)
-
+        self.doTest(2, -4, -70, [-5, 7])
 
 if __name__ == '__main__':
     main()
